@@ -39,6 +39,8 @@ function autorized() {
     userName.style.display = '';
     buttonOut.style.display = '';
     buttonOut.removeEventListener('click', logOut);
+  cardsRestaurants.removeEventListener('click', openGoods);
+
     checkAuth();
   }
 
@@ -47,6 +49,8 @@ function autorized() {
   userName.style.display = 'inline';
   buttonOut.style.display = 'block';
   buttonOut.addEventListener('click', logOut);
+  cardsRestaurants.addEventListener('click', openGoods);
+
 }
 
 function notautorized() {
@@ -62,6 +66,7 @@ function notautorized() {
       closeAuth.removeEventListener('click', toggleModalAuth);
       buttonAuth.removeEventListener('click', toggleModalAuth);
       logInForm.removeEventListener('submit', logIn);
+      cardsRestaurants.removeEventListener('click', toggleModalAuth);
       logInForm.reset();
       checkAuth();
     } else {
@@ -70,7 +75,8 @@ function notautorized() {
   }
   closeAuth.addEventListener('click', toggleModalAuth);
   buttonAuth.addEventListener('click', toggleModalAuth);
-  logInForm.addEventListener('submit', logIn)
+  logInForm.addEventListener('submit', logIn);
+  cardsRestaurants.addEventListener('click', toggleModalAuth)
 }
 
 function checkAuth() {
@@ -152,7 +158,6 @@ function openGoods(event) {
 
 cartButton.addEventListener("click", toggleModal);
 close.addEventListener("click", toggleModal);
-cardsRestaurants.addEventListener('click', openGoods);
 logo.addEventListener('click', function() {
   containerPromo.classList.remove('hide')
   restaurants.classList.remove('hide')
